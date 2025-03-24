@@ -3,36 +3,19 @@ import AvatarPreview from './components/AvatarPreview'
 import OptionsPicker from './components/OptionsPicker'
 import ColorPicker from './components/UI/ColorPicker'
 import TextInput from './components/UI/TextInput'
-import { useState } from 'react'
-import { useOnUpdateAvatarList } from './Hooks'
 import { AvatarContext, AvatarListContext } from './context'
-import { generateKey,buildURL, defaultRobot } from './Services'
+import { buildURL } from './Services'
 import RobotListItem from './components/RobotListItem'
 import SaveButton from './components/UI/SaveButton'
+import useAvatarState from './useAvatarState'
 
-
+// issue here is that if I contain these states inside the context provider
+// but these handlerfunctions need the state.
+// so i can move the handler functions into the providers also
+// but the handler functions need access to both states, not separate
 function App() {
 
-  const [avatarOptions, setAvatarOptions] = useState(defaultRobot)
-  const [avatarList, setAvatarList] = useState(useOnUpdateAvatarList)
-
-  const updateName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const _O = {...avatarOptions}
-    _O.name = event?.target.value
-    setAvatarOptions(_O)    
-  }
-
-  const saveAvatar = (url:string, name: string) => {
-    console.log(event?.target)
-    try{
-      console.log("fire!!!")
-      window.localStorage.setItem(generateKey(name), JSON.stringify({URL:url, name:name}))
-      setAvatarList(useOnUpdateAvatarList())
-      setAvatarOptions(defaultRobot)
-    } catch(error) {
-      console.log(error)
-    }
-  }
+  const {avatarOptions, setAvatarOptions, avatarList, setAvatarList, updateName, saveAvatar} = useAvatarState();
 
   return (
     <div className="app_container">

@@ -1,6 +1,6 @@
 import { AvatarList } from './Types'
 // this is not a hook, rename file/function or move to another
-export const useOnUpdateAvatarList =  () => {
+export const onUpdateAvatarList =  () => {
   try{
     const keys = Object.keys(window.localStorage)
     const aList:AvatarList = [] 

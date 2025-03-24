@@ -1,4 +1,4 @@
-import { useOnUpdateAvatarList } from './../Hooks'
+import { onUpdateAvatarList } from './../Hooks'
 import { useContext } from 'react'
 import { AvatarListContext } from './../context'
 import '../styles/robotListItem.css'
@@ -19,7 +19,7 @@ const RobotListItem = (props: Props) => {
     } catch(error){
       console.log(error)
     }
-    setAvatarList(useOnUpdateAvatarList())
+    setAvatarList(onUpdateAvatarList())
   }
 
   return (
