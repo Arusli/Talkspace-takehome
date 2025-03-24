@@ -1,5 +1,5 @@
 import { AvatarList } from './Types'
-
+// this is not a hook, rename file/function or move to another
 export const useOnUpdateAvatarList =  () => {
   try{
     const keys = Object.keys(window.localStorage)
@@ -10,8 +10,9 @@ export const useOnUpdateAvatarList =  () => {
       avatar.key = key
       aList.push(avatar)
     })   
-    return aList
+    return aList.sort((a, b) => a.name.localeCompare(b.name)) // alphabetize list
   } catch(error) {
     console.log(error)
+    return [] // for safety
   }
 }
