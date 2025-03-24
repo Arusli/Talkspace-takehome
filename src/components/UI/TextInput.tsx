@@ -5,7 +5,6 @@ import '../../styles/UI/textinput.css'
 interface Props {
   name: string;
   label: string;
-  avatarName: string
   placeholder?: string; 
   className?: string;
   value: string;
