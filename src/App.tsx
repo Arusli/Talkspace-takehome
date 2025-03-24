@@ -5,7 +5,7 @@ import ColorPicker from './components/UI/ColorPicker'
 import TextInput from './components/UI/TextInput'
 import { useState } from 'react'
 import { useOnUpdateAvatarList } from './Hooks'
-import { AvatarContext, AvatarURLContext, AvatarListContext } from './context'
+import { AvatarContext, AvatarListContext } from './context'
 import { generateKey,buildURL, defaultRobot } from './Services'
 import RobotListItem from './components/RobotListItem'
 import SaveButton from './components/UI/SaveButton'
@@ -37,7 +37,6 @@ function App() {
   return (
     <div className="app_container">
       <AvatarContext.Provider value = {{avatarOptions, setAvatarOptions}}>
-        <AvatarURLContext.Provider value = {buildURL(avatarOptions)}>
           <AvatarListContext.Provider value = {{avatarList, setAvatarList}}>
 
             <div className="main">
@@ -89,7 +88,6 @@ function App() {
               </div>
             </div>
           </AvatarListContext.Provider>  
-        </AvatarURLContext.Provider>
       </AvatarContext.Provider>
     </div>
   )
