@@ -8,7 +8,7 @@ export type AvatarOptions = {
   sides: string,
   texture: string,
   top: string,
-} | undefined 
+}
 
 export type AvatarURL = string | undefined
 
