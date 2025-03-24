@@ -9,18 +9,14 @@ import RobotListItem from './components/RobotListItem'
 import SaveButton from './components/UI/SaveButton'
 import useAvatarState from './useAvatarState'
 
-// issue here is that if I contain these states inside the context provider
-// but these handlerfunctions need the state.
-// so i can move the handler functions into the providers also
-// but the handler functions need access to both states, not separate
 function App() {
 
-  const {avatarOptions, setAvatarOptions, avatarList, setAvatarList, updateName, saveAvatar} = useAvatarState();
+  const {avatarOptions, setAvatarOptions, avatarList, setAvatarList, updateName, saveAvatar, deleteAvatar} = useAvatarState();
 
   return (
     <div className="app_container">
       <AvatarContext.Provider value = {{avatarOptions, setAvatarOptions}}>
-          <AvatarListContext.Provider value = {{avatarList, setAvatarList}}>
+          <AvatarListContext.Provider value = {{avatarList, setAvatarList, deleteAvatar}}>
 
             <div className="main">
               <div className="avatar_creator">
