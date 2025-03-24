@@ -1,5 +1,4 @@
 import { AvatarList } from './Types'
-import { alphabetizeAvatars } from './Services'
 // this is not a hook, rename file/function or move to another
 export const createAvatarListFromStorage =  () => {
   try{
@@ -11,7 +10,7 @@ export const createAvatarListFromStorage =  () => {
       avatar.key = key
       aList.push(avatar)
     })   
-    return alphabetizeAvatars(aList)
+    return aList
   } catch(error) {
     console.log(error)
     return [] // for safety

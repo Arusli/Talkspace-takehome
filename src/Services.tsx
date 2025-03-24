@@ -166,5 +166,5 @@ export const COLOR_PALETTE = [
 ]
 
 export const alphabetizeAvatars = (arr: AvatarList) => {
-  return arr.sort((a, b) => a.name.localeCompare(b.name))
+  return [...arr].sort((a, b) => a.name.localeCompare(b.name))
 }

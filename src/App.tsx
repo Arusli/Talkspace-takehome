@@ -4,7 +4,7 @@ import OptionsPicker from './components/OptionsPicker'
 import ColorPicker from './components/UI/ColorPicker'
 import TextInput from './components/UI/TextInput'
 import { AvatarContext, AvatarListContext } from './context'
-import { buildURL } from './Services'
+import { buildURL, alphabetizeAvatars } from './Services'
 import RobotListItem from './components/RobotListItem'
 import SaveButton from './components/UI/SaveButton'
 import useAvatarState from './useAvatarState'
@@ -52,7 +52,7 @@ function App() {
               </div>
               <div className="avatar_list">
                 <ul>
-                  { avatarList && avatarList.map((avatar) => {
+                  { avatarList && alphabetizeAvatars(avatarList).map((avatar) => {
                       return (
                         <RobotListItem
                           key={avatar.key}
