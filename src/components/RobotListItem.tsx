@@ -11,16 +11,7 @@ interface Props {
 
 const RobotListItem = (props: Props) => {
   const {keyName, name, url} = props
-  const {avatarList, setAvatarList, deleteAvatar} = useContext(AvatarListContext)
-
-  // const deleteAvatar = (keyN:string) => {
-  //   try {
-  //     window.localStorage.removeItem(keyN)
-  //   } catch(error){
-  //     console.log(error)
-  //   }
-  //   setAvatarList(createAvatarListFromStorage())
-  // }
+  const {avatarList, deleteAvatar} = useContext(AvatarListContext)
 
   return (
     <>
