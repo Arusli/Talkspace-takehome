@@ -1,4 +1,4 @@
-import { AvatarOptions, OverrideOption, CustomizationOptions } from './Types'
+import { AvatarOptions, OverrideOption, CustomizationOptions, AvatarList } from './Types'
 
 // construct URLs for avatars
 export const buildURL = (avatarOptions: AvatarOptions | undefined, overrideOption?: OverrideOption) => {
@@ -21,7 +21,7 @@ export const buildURL = (avatarOptions: AvatarOptions | undefined, overrideOptio
 
 // generate unique-ish ID
 export const generateKey = (name: string) => {
-  return `${name}${Math.floor(Math.random()*1000000)}`
+  return `${name}${Math.floor(Math.random()*1000000)}` // probably should use real UUID here
 }
 
 export const defaultRobot: AvatarOptions = {
@@ -164,3 +164,7 @@ export const COLOR_PALETTE = [
   "45FFC8",
   "5100FF",
 ]
+
+export const alphabetizeAvatars = (arr: AvatarList) => {
+  return [...arr].sort((a, b) => a.name.localeCompare(b.name))
+}
